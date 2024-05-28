@@ -4,6 +4,8 @@ RUN git clone https://github.com/PramodMahajan14/Java-API-APP.git
 RUN cd Java-API-APP && git checkout docker && mvn install
 
 FROM tomcat:9-jre11
+LABEL "Project"="courseapi"
+LABEL "Author"="pramod"
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY --from=BUILD_IMAGE Java-API-APP/target/Java-API-APP-v2.jar usr/local/tomcat/webapps/ROOT.jar
 
